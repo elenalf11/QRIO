@@ -1,0 +1,52 @@
+<style>
+    @keyframes fadeOutLeft {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+    }
+    
+    .fade-out-left {
+        animation: fadeOutLeft 2s ease-in-out forwards;
+    }
+    </style>
+
+<section class="flex justify-center items-center m-8">
+    <div
+        class="relative w-72 h-96 duration-1000 md:duration-700 [perspective:1000px] group"
+    >
+        <div
+            class="relative z-20 w-full h-full [transform-style:preserve-3d] md:group-hover:[transform:rotateY(0deg)] transition-all duration-500"
+        >
+            <!-- DIV SOBRE -->
+            <div class="relative w-full h-full">
+                <img
+                    class="top-9 z-10 absolute inset-0 w-full h-full object-cover"
+                    src="/Elementos_Qrio/sobre2.png"
+                    alt="Sobre Qrio"
+                />
+                <img
+                    id="sobre1"
+                    class="fade-out-left z-20 absolute w-full h-auto object-contain"
+                    src="/Elementos_Qrio/sobre1.png"
+                    alt="Rasgar sobre"
+                />
+            </div>
+
+            <!-- DIV CARTA -->
+            <div
+                class="top-0 right-0 bottom-0 left-0 -z-10 absolute inset-0 m-auto rounded-2xl md:rounded-l-none w-[88%] md:[transform:rotateY(0deg)] group-hover:-translate-y-72 duration-700"
+            >
+                <img
+                    class=""
+                    src="/Elementos_Qrio/ilus_azul1.png"
+                    alt="Sobre Qrio"
+                />
+            </div>
+        </div>
+    </div>
+</section>
