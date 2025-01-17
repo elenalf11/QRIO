@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Sobre from "../components/Sobre.astro";
+import '../styles/fonts.css';
 ---
 
 <!doctype html>
@@ -16,10 +17,7 @@ import Sobre from "../components/Sobre.astro";
   <body>
     <Header />
     <slot />
-    <div class="pt-40">
-      <Sobre />
-    </div>
-    
+    <Sobre />
     <Footer />
   </body>
 </html>
