@@ -1,0 +1,191 @@
+<style>
+    /* Animaciones */
+    @keyframes fadeOutLeft {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-100px);
+        }
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes slideDown {
+        0% {
+            transform: translateY(-100px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes flipCard {
+        0% {
+            transform: rotateY(0);
+        }
+        100% {
+            transform: rotateY(180deg);
+        }
+    }
+
+    .fade-out-left {
+        animation: fadeOutLeft 1s ease-in-out forwards;
+    }
+
+    .slide-up {
+        animation: slideUp 1s ease-in-out forwards;
+    }
+
+    .fade-out {
+        animation: fadeOut 1s ease-in-out forwards;
+    }
+
+    .slide-down {
+        animation: slideDown 1s ease-in-out;
+    }
+
+    .flip-card {
+        animation: flipCard 1s ease-in-out forwards;
+    }
+
+
+    .card {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+    }
+
+    .card-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 16px;
+    }
+
+    .card-front {
+        background-image: url('/Elementos_Qrio/ilus_azul1.png');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .card-back {
+        background-image: url('/Elementos_Qrio/ilus_azul2.png');
+        background-size: cover;
+        background-position: center;
+        transform: rotateY(180deg);
+    }
+</style>
+
+<section class="flex justify-center items-center m-8">
+    <div
+        class="relative w-72 h-96 duration-1000 md:duration-700 [perspective:1000px]"
+        onclick="triggerAnimation()"
+    >
+        <div
+            id="animationContainer"
+            class="relative z-20 w-full h-full [transform-style:preserve-3d] transition-all duration-500"
+        >
+            <!-- DIV SOBRE -->
+            <div id="sobreContainer" class="relative w-full h-full">
+                <img
+                    class="top-9 z-10 absolute inset-0 w-full h-full object-cover"
+                    src="/Elementos_Qrio/sobre2.png"
+                    alt="Sobre Qrio"
+                />
+                <img
+                    id="sobre1"
+                    class="z-20 absolute w-full h-auto object-contain"
+                    src="/Elementos_Qrio/sobre1.png"
+                    alt="Rasgar sobre"
+                />
+            </div>
+
+            <!-- DIV CARTA -->
+            <div
+                id="cartaContainer"
+                class="top-0 right-0 bottom-0 left-0 -z-10 absolute inset-0 m-auto rounded-2xl w-[88%]"
+            >
+                <div id="carta" class="card">
+                    <!-- Cara frontal -->
+                    <div class="card-face card-front"></div>
+
+                    <!-- Cara trasera -->
+                    <div class="card-back card-face"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        function triggerAnimation() {
+            const sobre = document.getElementById("sobre1");
+            const carta = document.getElementById("carta");
+            const sobreContainer = document.getElementById("sobreContainer");
+
+            if (sobre) {
+                sobre.classList.add("fade-out-left");
+            }
+
+            setTimeout(() => {
+                if (carta) {
+                    carta.classList.add("slide-up");
+                }
+            }, 1000); // Espera a que termine la animación anterior
+
+            setTimeout(() => {
+                if (sobreContainer) {
+                    sobreContainer.classList.add("fade-out");
+                }
+            }, 2000);
+
+            setTimeout(() => {
+                if (carta) {
+                    carta.classList.remove("slide-up");
+                    carta.classList.add("slide-down"); // Aplica la clase de transición suave
+                }
+            }, 3000);
+
+            setTimeout(() => {
+                if (carta) {
+                    carta.classList.remove("slide-down");   
+                }
+            }, 4000);
+
+            setTimeout(() => {
+                if (carta) {
+                    carta.classList.add("flip-card");
+                }
+            }, 4100);
+        }
+
+        const animationContainer = document.getElementById("animationContainer");
+        if (animationContainer) {
+            animationContainer.addEventListener("click", triggerAnimation);
+        } else {
+            console.error("El contenedor de animación 'animationContainer' no fue encontrado.");
+        }
+    });
+</script> 
