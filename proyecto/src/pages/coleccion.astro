@@ -27,23 +27,18 @@ import Layout from "../layouts/Layout.astro";
             <!-- Contenedor de la cuadrícula -->
             <div id="grid" class="bg-[#f4e8df] rounded mx-4 mb-12 lg:mx-10 grid grid-cols-2 gap-y-2 gap-x-2 p-4 sm:gap-y-4 sm:gap-x-4 sm:grid-cols-3 auto-rows-fr h-screen">
                 <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
-                    Inicial 1
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">
                 </div>
                 <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
-                    Inicial 2
-                </div>
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">                </div>
                 <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
-                    Inicial 3
-                </div>
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">                </div>
                 <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
-                    Inicial 4
-                </div>
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">                </div>
                 <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
-                    Inicial 5
-                </div>
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">                </div>
                 <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
-                    Inicial 6
-                </div>
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">                </div>
             </div>
         </div>
 
@@ -56,44 +51,44 @@ import Layout from "../layouts/Layout.astro";
     <script>
         const categories = {
             gastronomia: [
-                "Comida 1",
-                "Comida 2",
-                "Comida 3",
-                "Comida 4",
-                "Comida 5",
-                "Comida 6",
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
             ],
             arte: [
-                "Arte 1",
-                "Arte 2",
-                "Arte 3",
-                "Arte 4",
-                "Arte 5",
-                "Arte 6",
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},          
             ],
             biologia: [
-                "Biología 1",
-                "Biología 2",
-                "Biología 3",
-                "Biología 4",
-                "Biología 5",
-                "Biología 6",
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
             ],
             deporte: [
-                "Deporte 1",
-                "Deporte 2",
-                "Deporte 3",
-                "Deporte 4",
-                "Deporte 5",
-                "Deporte 6",
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
             ],
             historia: [
-                "Historia 1",
-                "Historia 2",
-                "Historia 3",
-                "Historia 4",
-                "Historia 5",
-                "Historia 6",
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
             ],
         };
 
@@ -110,7 +105,9 @@ import Layout from "../layouts/Layout.astro";
             grid.innerHTML = items
                 .map(
                     (item) =>
-                        `<div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">${item}</div>`
+                    `<div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center min-h-[120px] font-fuente">
+                            <img src="${item.img}" alt="Imagen de la categoría" class="w-[50%]">
+                        </div>`
                 )
                 .join("");
 
