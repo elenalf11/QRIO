@@ -3,8 +3,132 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
+    <section class="bg-[#ead8c5] h-screen w-full relative flex flex-col">
+        <!-- Menú de categorías -->
+        <div class="bg-[#ead8c5] shadow-md">
+            <div class="flex justify-center items-center py-2">
+                <button data-category="gastronomia" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                    Gastronomía
+                </button>
+                <button data-category="arte" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                    Arte
+                </button>
+                <button data-category="biologia" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                    Biología
+                </button>
+                <button data-category="deporte" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                    Deporte
+                </button>
+                <button data-category="historia" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                    Historia
+                </button>
+            </div>
 
-    <section class="w-full h-screen bg-[#bea099]"> <!--Fondo marrón-->
-        <img src="/images/seta.png" alt="Figura de seta" class=" absolute bottom-12 right-12 w-24">
+            <!-- Contenedor de la cuadrícula -->
+            <div id="grid" class="bg-[#f4e8df] rounded mx-4 mb-12 lg:mx-10 grid grid-cols-2 gap-y-2 gap-x-2 p-4 sm:gap-y-4 sm:gap-x-4 sm:grid-cols-3 auto-rows-fr h-screen">
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    Inicial 1
+                </div>
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    Inicial 2
+                </div>
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    Inicial 3
+                </div>
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    Inicial 4
+                </div>
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    Inicial 5
+                </div>
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    Inicial 6
+                </div>
+            </div>
+        </div>
+
+        <!-- Imagen inferior -->
+        <img src="./media/seta.png" alt="Figura de seta" class="absolute bottom-0 right-5 w-24">
     </section>
+
+
+    <!-- Script para cambiar dinámicamente la cuadrícula -->
+    <script>
+        const categories = {
+            gastronomia: [
+                "Comida 1",
+                "Comida 2",
+                "Comida 3",
+                "Comida 4",
+                "Comida 5",
+                "Comida 6",
+            ],
+            arte: [
+                "Arte 1",
+                "Arte 2",
+                "Arte 3",
+                "Arte 4",
+                "Arte 5",
+                "Arte 6",
+            ],
+            biologia: [
+                "Biología 1",
+                "Biología 2",
+                "Biología 3",
+                "Biología 4",
+                "Biología 5",
+                "Biología 6",
+            ],
+            deporte: [
+                "Deporte 1",
+                "Deporte 2",
+                "Deporte 3",
+                "Deporte 4",
+                "Deporte 5",
+                "Deporte 6",
+            ],
+            historia: [
+                "Historia 1",
+                "Historia 2",
+                "Historia 3",
+                "Historia 4",
+                "Historia 5",
+                "Historia 6",
+            ],
+        };
+
+        // Selecciona todos los botones y el contenedor de la cuadrícula
+        const buttons = document.querySelectorAll(".category-btn");
+        const grid = document.getElementById("grid");
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const category = button.getAttribute("data-category");
+                const items = categories[category];
+
+                // Actualiza la cuadrícula
+            grid.innerHTML = items
+                .map(
+                    (item) =>
+                        `<div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">${item}</div>`
+                )
+                .join("");
+
+            // Estilo original para todos los botones
+            buttons.forEach((btn) => {
+                btn.style.backgroundColor = ""; // Fondo original
+                btn.style.color = "#4e342e"; // Color original del texto
+                btn.style.borderRadius = "0"; // Sin bordes redondeados
+                btn.style.padding = "0"; // Restablecer espacio
+            });
+
+            // Estilo para el botón seleccionado
+            button.style.backgroundColor = "#f4e8df"; // Color suave
+            button.style.color = "#4e342e"; // Color del texto
+            button.style.borderRadius = "12px"; // Bordes redondeados
+            button.style.padding = "6px 8px"; // Espaciado interno
+            grid.style.marginTop = "-14px";
+            });
+        });
+    </script>
 </Layout>
