@@ -1,0 +1,131 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <section class="bg-[#ead8c5] h-screen w-full relative flex flex-col">
+        <!-- Menú de categorías -->
+        <div class="bg-[#ead8c5] shadow-md">
+            <div class="flex justify-center items-center py-2">
+                <button data-category="gastronomia" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                    Gastronomía
+                </button>
+                <button data-category="arte" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                    Arte
+                </button>
+                <button data-category="biologia" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                    Biología
+                </button>
+                <button data-category="deporte" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                    Deporte
+                </button>
+                <button data-category="historia" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                    Historia
+                </button>
+            </div>
+
+            <!-- Contenedor de la cuadrícula -->
+            <div id="grid" class="bg-[#f4e8df] rounded mx-4 mb-12 lg:mx-10 grid grid-cols-2 gap-y-2 gap-x-2 p-4 sm:gap-y-4 sm:gap-x-4 sm:grid-cols-3 auto-rows-fr h-screen">
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">
+                </div>
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">                </div>
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">                </div>
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">                </div>
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">                </div>
+                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold min-h-[120px] font-fuente">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[50%]">                </div>
+            </div>
+        </div>
+
+        <!-- Imagen inferior -->
+        <img src="./media/seta.png" alt="Figura de seta" class="absolute bottom-0 right-5 w-24">
+    </section>
+
+
+    <!-- Script para cambiar dinámicamente la cuadrícula -->
+    <script>
+        const categories = {
+            gastronomia: [
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+            ],
+            arte: [
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},          
+            ],
+            biologia: [
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+            ],
+            deporte: [
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+            ],
+            historia: [
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+                { img: "./media/cruz_mejorada.png"},
+            ],
+        };
+
+        // Selecciona todos los botones y el contenedor de la cuadrícula
+        const buttons = document.querySelectorAll(".category-btn");
+        const grid = document.getElementById("grid");
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const category = button.getAttribute("data-category");
+                const items = categories[category];
+
+                // Actualiza la cuadrícula
+            grid.innerHTML = items
+                .map(
+                    (item) =>
+                    `<div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center min-h-[120px] font-fuente">
+                            <img src="${item.img}" alt="Imagen de la categoría" class="w-[50%]">
+                        </div>`
+                )
+                .join("");
+
+            // Estilo original para todos los botones
+            buttons.forEach((btn) => {
+                btn.style.backgroundColor = ""; // Fondo original
+                btn.style.color = "#4e342e"; // Color original del texto
+                btn.style.borderRadius = "0"; // Sin bordes redondeados
+                btn.style.padding = "0"; // Restablecer espacio
+            });
+
+            // Estilo para el botón seleccionado
+            button.style.backgroundColor = "#f4e8df"; // Color suave
+            button.style.color = "#4e342e"; // Color del texto
+            button.style.borderRadius = "12px"; // Bordes redondeados
+            button.style.padding = "6px 8px"; // Espaciado interno
+            grid.style.marginTop = "-15px";
+            });
+        });
+    </script>
+</Layout>
