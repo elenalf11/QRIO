@@ -47,6 +47,17 @@
         }
     }
 
+    @keyframes moveAndShrink {
+        0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-200%, -70%) scale(0.2);
+            opacity: 0;
+        }
+    }
+
     .fade-out-left {
         animation: fadeOutLeft 1s ease-in-out forwards;
     }
@@ -67,12 +78,16 @@
         animation: flipCard 1s ease-in-out forwards;
     }
 
+    .move-and-shrink {
+        animation: moveAndShrink 1s ease-in-out forwards;
+    }
 
     .card {
         position: relative;
         width: 100%;
         height: 100%;
         transform-style: preserve-3d;
+        transition: transform 1s ease-in-out;
     }
 
     .card-face {
@@ -95,12 +110,16 @@
         background-position: center;
         transform: rotateY(180deg);
     }
+
+    .show-back {
+        transform: rotateY(180deg) !important;
+    }
 </style>
 
 <section class="flex justify-center items-center m-8">
     <div
         class="relative w-72 h-96 duration-1000 md:duration-700 [perspective:1000px]"
-        onclick="triggerAnimation()"
+        onclick="handleClick()"
     >
         <div
             id="animationContainer"
@@ -140,35 +159,38 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        function triggerAnimation() {
+        let clickCount = 0;
+
+        function handleClick() {
             const sobre = document.getElementById("sobre1");
             const carta = document.getElementById("carta");
             const sobreContainer = document.getElementById("sobreContainer");
 
-            if (sobre) {
-                sobre.classList.add("fade-out-left");
-            }
-
-            setTimeout(() => {
-                if (carta) {
-                    carta.classList.add("slide-up");
+            if (clickCount === 0) {
+                if (sobre) {
+                    sobre.classList.add("fade-out-left");
                 }
-            }, 1000); // Espera a que termine la animación anterior
 
-            setTimeout(() => {
-                if (sobreContainer) {
-                    sobreContainer.classList.add("fade-out");
-                }
-            }, 2000);
+                setTimeout(() => {
+                    if (carta) {
+                        carta.classList.add("slide-up");
+                    }
+                }, 1000);
 
-            setTimeout(() => {
-                if (carta) {
-                    carta.classList.remove("slide-up");
-                    carta.classList.add("slide-down"); // Aplica la clase de transición suave
-                }
-            }, 3000);
+                setTimeout(() => {
+                    if (sobreContainer) {
+                        sobreContainer.classList.add("fade-out");
+                    }
+                }, 2000);
 
-            setTimeout(() => {
+                setTimeout(() => {
+                    if (carta) {
+                        carta.classList.remove("slide-up");
+                        carta.classList.add("slide-down");
+                    }
+                }, 3000);
+
+                setTimeout(() => {
                 if (carta) {
                     carta.classList.remove("slide-down");   
                 }
@@ -179,13 +201,21 @@
                     carta.classList.add("flip-card");
                 }
             }, 4100);
+
+                clickCount++;
+            } else if (clickCount === 1) {
+                if (carta) {
+                    carta.classList.add("move-and-shrink");
+                }
+                clickCount++;
+            }
         }
 
         const animationContainer = document.getElementById("animationContainer");
         if (animationContainer) {
-            animationContainer.addEventListener("click", triggerAnimation);
+            animationContainer.addEventListener("click", handleClick);
         } else {
             console.error("El contenedor de animación 'animationContainer' no fue encontrado.");
         }
     });
-</script> 
+</script>
