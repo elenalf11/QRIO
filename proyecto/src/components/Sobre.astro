@@ -47,6 +47,17 @@
     }
   }
 
+  @keyframes moveAndShrink {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-200%, -70%) scale(0.2);
+      opacity: 0;
+    }
+  }
+
   .fade-out-left {
     animation: fadeOutLeft 1s ease-in-out forwards;
   }
@@ -67,11 +78,16 @@
     animation: flipCard 1s ease-in-out forwards;
   }
 
+  .move-and-shrink {
+    animation: moveAndShrink 1s ease-in-out forwards;
+  }
+
   .card {
     position: relative;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
     margin-top: 2%;
   }
 
@@ -94,12 +110,16 @@
     background-position: center;
     transform: rotateY(180deg);
   }
+
+  .show-back {
+    transform: rotateY(180deg) !important;
+  }
 </style>
 
 <section class="flex justify-center items-center m-8">
   <div
     class="relative w-72 h-96 duration-1000 md:duration-700 [perspective:1000px]"
-    onclick="triggerAnimation()"
+    onclick="handleClick()"
   >
     <div
       id="animationContainer"
@@ -138,6 +158,69 @@
 </section>
 
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    let clickCount = 0;
+
+    function handleClick() {
+      const sobre = document.getElementById("sobre1");
+      const carta = document.getElementById("carta");
+      const sobreContainer = document.getElementById("sobreContainer");
+
+      if (clickCount === 0) {
+        if (sobre) {
+          sobre.classList.add("fade-out-left");
+        }
+
+        setTimeout(() => {
+          if (carta) {
+            carta.classList.add("slide-up");
+          }
+        }, 1000);
+
+        setTimeout(() => {
+          if (sobreContainer) {
+            sobreContainer.classList.add("fade-out");
+          }
+        }, 2000);
+
+        setTimeout(() => {
+          if (carta) {
+            carta.classList.remove("slide-up");
+            carta.classList.add("slide-down");
+          }
+        }, 3000);
+
+        setTimeout(() => {
+          if (carta) {
+            carta.classList.remove("slide-down");
+          }
+        }, 4000);
+
+        setTimeout(() => {
+          if (carta) {
+            carta.classList.add("flip-card");
+          }
+        }, 4100);
+
+        clickCount++;
+      } else if (clickCount === 1) {
+        if (carta) {
+          carta.classList.add("move-and-shrink");
+        }
+        clickCount++;
+      }
+    }
+
+    const animationContainer = document.getElementById("animationContainer");
+    if (animationContainer) {
+      animationContainer.addEventListener("click", handleClick);
+    } else {
+      console.error(
+        "El contenedor de animación 'animationContainer' no fue encontrado."
+      );
+    }
+  });
+
   window.onload = () => {
     const frontImages: string[] = [
       "/Elementos_Qrio/ilus_azul1.png",
@@ -158,10 +241,8 @@
       return { image: images[index], index };
     };
 
-    // Obtén la imagen frontal aleatoria y su índice
     const { image: randomFrontImage, index } = getRandomImage(frontImages);
 
-    // Usa el mismo índice para obtener la imagen trasera correspondiente
     const randomBackImage = backImages[index];
 
     console.log("Imagen frontal seleccionada:", randomFrontImage);
@@ -176,56 +257,6 @@
     } else {
       console.error(
         "Los elementos .card-front o .card-back no fueron encontrados."
-      );
-    }
-
-    function triggerAnimation() {
-      const sobre = document.getElementById("sobre1");
-      const carta = document.getElementById("carta");
-      const sobreContainer = document.getElementById("sobreContainer");
-
-      if (sobre) {
-        sobre.classList.add("fade-out-left");
-      }
-
-      setTimeout(() => {
-        if (carta) {
-          carta.classList.add("slide-up");
-        }
-      }, 1000);
-
-      setTimeout(() => {
-        if (sobreContainer) {
-          sobreContainer.classList.add("fade-out");
-        }
-      }, 2000);
-
-      setTimeout(() => {
-        if (carta) {
-          carta.classList.remove("slide-up");
-          carta.classList.add("slide-down");
-        }
-      }, 3000);
-
-      setTimeout(() => {
-        if (carta) {
-          carta.classList.remove("slide-down");
-        }
-      }, 4000);
-
-      setTimeout(() => {
-        if (carta) {
-          carta.classList.add("flip-card");
-        }
-      }, 4100);
-    }
-
-    const animationContainer = document.getElementById("animationContainer");
-    if (animationContainer) {
-      animationContainer.addEventListener("click", triggerAnimation);
-    } else {
-      console.error(
-        "El contenedor de animación 'animationContainer' no fue encontrado."
       );
     }
   };
