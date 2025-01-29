@@ -1,0 +1,213 @@
+---
+title: 'Mi página Astro'
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mi primera página con Astro" />
+    <title>{Astro.props.title}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        background-color: #EAD8C5;
+        font-family: 'Roboto', sans-serif;
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px 20px;
+      }
+
+      /* Contenedor principal */
+      .body-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+      }
+
+      .container {
+        background-color: #F4E8DF;
+        border-radius: 10px;
+        padding: 30px;
+        text-align: center;
+        width: 100%;
+        max-width: 900px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        margin-top: 50px;
+        margin-bottom: 100px;
+        height: calc(100vh - 200px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+      }
+
+      /* Imágenes dentro del container */
+      .top-left-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+      }
+
+      .bottom-right-image {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+      }
+
+      /* Imagen de la seta */
+      .bottom-left-image {
+        position: absolute;
+        top: -50px;  /* Moverla más arriba */
+        right: -30px;
+        width: 150px; /* Tamaño por defecto en PC */
+      }
+
+      /* Estilos para los campos de entrada */
+      .email-input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
+        font-size: 16px;
+        background-color: white;
+        color: #333;
+        box-sizing: border-box;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        margin: 8px 0;
+        font-size: 16px;
+        resize: none;
+        background-color: white;
+        color: #333;
+        box-sizing: border-box;
+        flex-grow: 1;
+      }
+
+      .select-dropdown {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        font-size: 16px;
+        background-color: white;
+        color: #333;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        cursor: pointer;
+        justify-items: center;
+      }
+
+      .buttons-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .left-btn {
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #EB585B;
+        color: white;
+        width: 65%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease;
+      }
+
+      .left-btn:hover {
+        background-color: #D84E4E;
+      }
+
+      /* Media queries */
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+        .email-input {
+          font-size: 14px;
+          padding: 15px;
+        }
+        .input-field {
+          font-size: 14px;
+          padding: 15px;
+          height: 350px;
+        }
+        .buttons-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .left-btn {
+          width: 80%;
+        }
+
+        /* Para dispositivos móviles: tamaño más pequeño para la imagen */
+        .bottom-left-image {
+          position: absolute;
+          top: -10px;  /* Un poco más arriba que antes */
+          right: -10px;
+          width: 25%;  /* Más pequeña para móvil */
+        }
+      }
+
+      @media (min-width: 768px) {
+        .bottom-left-image {
+          position: absolute;
+          top: -50px;  /* Mover más arriba */
+          right: -30px;
+          width: 150px; /* Tamaño grande por defecto para PC */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body-container">
+      <div class="font-fuente container">
+        <!-- Imágenes dentro del container -->
+        <img src="/Elementos_Qrio/esquina.png" alt="Imagen Esquina" class="top-left-image" />
+        <img src="/Elementos_Qrio/esquina2.png" alt="Imagen Esquina 2" class="bottom-right-image" />
+        <img src="/Elementos_Qrio/seta.png" alt="Imagen Seta" class="bottom-left-image" />
+        
+        <!-- Contenido principal -->
+        <input class="email-input" type="email" placeholder="Ingresa tu correo..." required />
+        <textarea class="input-field" placeholder="Escribe aquí..."></textarea>
+        
+        <!-- Desplegable con 9 opciones -->
+        <select class="select-dropdown">
+          <option value="">Selecciona el tipo de Qrio</option>
+          <option value="opcion1">Gastronomía</option>
+          <option value="opcion2">Arte</option>
+          <option value="opcion3">Deporte</option>
+          <option value="opcion4">Biologia</option>
+          <option value="opcion5">Astronomía</option>
+          <option value="opcion6">Historia</option>
+          <option value="opcion7">Informática</option>
+          <option value="opcion8">Ed. Sexual</option>
+          <option value="opcion9">Cine</option>
+        </select>
+        
+        <div class="buttons-container">
+          <button class="left-btn">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
