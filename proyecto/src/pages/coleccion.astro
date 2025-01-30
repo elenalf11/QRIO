@@ -3,143 +3,220 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <section class="bg-[#ead8c5] w-full relative flex flex-col">
+    <section class="relative flex flex-col bg-[#eaddc5] w-full min-h-screen">
         <!-- Menú de categorías -->
         <div class="bg-[#ead8c5] shadow-md">
-            <div class="flex justify-center items-center py-2">
-                <button data-category="gastronomia" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+            <div class="flex flex-1 justify-center items-center py-2">
+                <button data-category="gastronomia" class="mx-2 font-fuente font-semibold text-[#4e342e] hover:underline category-btn">
                     Gastronomía
                 </button>
-                <button data-category="arte" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                <button data-category="arte" class="mx-2 font-fuente font-semibold text-[#4e342e] hover:underline category-btn">
                     Arte
                 </button>
-                <button data-category="biologia" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                <button data-category="biologia" class="mx-2 font-fuente font-semibold text-[#4e342e] hover:underline category-btn">
                     Biología
                 </button>
-                <button data-category="deporte" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                <button data-category="deporte" class="mx-2 font-fuente font-semibold text-[#4e342e] hover:underline category-btn">
                     Deporte
                 </button>
-                <button data-category="historia" class="category-btn mx-2 text-[#4e342e] font-semibold hover:underline font-fuente">
+                <button data-category="historia" class="mx-2 font-fuente font-semibold text-[#4e342e] hover:underline category-btn">
                     Historia
                 </button>
             </div>
 
             <!-- Contenedor de la cuadrícula -->
-            <div id="grid" class="bg-[#f4e8df] rounded mx-4 mb-12 lg:mx-10 grid grid-cols-2 gap-y-2 gap-x-2 p-4 sm:gap-y-4 sm:gap-x-4 sm:grid-cols-3 auto-rows-fr">
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">
+            <div id="grid" class="gap-x-2 gap-y-2 sm:gap-y-4 sm:gap-x-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 auto-rows-fr bg-[#f4e8df] mx-4 lg:mx-10 mb-12 p-4 rounded">
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">
                 </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./Elementos_Qrio/ilus_rosa2.png" class="w-[41%]">
-                    <img src="./Elementos_Qrio/ilus_rosa1.png" class="w-[34%]">
-                    
-                    <!-- <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]"> -->               </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">                </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">                </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">                </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">                </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">                </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">                </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">                </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">                </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">                </div>
-                <div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center text-[#4e342e] font-bold h-28 font-fuente">
-                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%]">                </div>
-            </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]"> 
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">               </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                    <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>
+                    <div class="flex justify-center items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 font-bold font-fuente text-[#4e342e]">
+                        <img src="./media/cruz_mejorada.png" alt="Cruz de las tarjetas" class="w-[30%] lg:w-[20%]">                </div>            
+                </div>  
         </div>
 
         <!-- Imagen inferior -->
-        <img src="./media/seta.png" alt="Figura de seta" class="fixed bottom-12 right-4 w-24 h-auto">
+        <img src="./media/seta.png" alt="Figura de seta" class="right-4 bottom-12 fixed w-24 h-auto">
     </section>
 
-
-    <!-- Script para cambiar dinámicamente la cuadrícula -->
+    <!--Script para cambiar la cuadricula dinamicamente -->
     <script>
-        const categories = {
-            gastronomia: [
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
+        const categories ={
+            gastronomia : [
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
             ],
-            arte: [
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},          
-            ],
-            biologia: [
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-            ],
-            deporte: [
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-            ],
-            historia: [
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-                { img: "./media/cruz_mejorada.png"},
-            ],
-        };
 
+            arte : [
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+            ],
+
+            biologia : [
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+            ],
+
+            deporte : [
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+            ],
+            historia : [
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+            ],
+  
+        };
+        //Mapa de colores para el fondo cuadricula
+        const categoryColors = {
+        gastronomia: "#ff99c8",
+        arte: "#90e0ef",
+        biologia: "#6a994e",
+        deporte: "#c77dff",
+        historia: "#fcf6bd",
+    };
         // Selecciona todos los botones y el contenedor de la cuadrícula
         const buttons = document.querySelectorAll(".category-btn");
         const grid = document.getElementById("grid");
-
+        "Sombras cuadricula base"
+        grid.classList.add("shadow-lg", "rounded-lg");
+       
+        //Iteración sobre cada elemento de la categoría
         buttons.forEach((button) => {
             button.addEventListener("click", () => {
+                //Categoria asociada al boton pulsado
                 const category = button.getAttribute("data-category");
+                //Obtiene los elementos (items) de la categoría seleccionada
                 const items = categories[category];
-
+                //color correspondiente a la categoria
+                const color = categoryColors[category];
                 // Actualiza la cuadrícula
-            grid.innerHTML = items
+                grid.innerHTML = items
                 .map(
                     (item) =>
-                    `<div class="bg-[#f4f0ed] rounded-lg shadow-md flex justify-center items-center min-h-[120px] font-fuente">
-                            <img src="${item.img}" alt="Imagen de la categoría" class="w-[30%]">
+                        `<div class="flex flex-row justify-around items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 xl:h-44 font-bold font-fuente text-[#4e342e]">
+                            <img src="${item.imgs[0]}" alt="Imagen de categoría 1" class="w-[37%] img-clase-1">
+                            <img src="${item.imgs[1]}" alt="Imagen de categoría 2" class="w-[45%] img-clase-2">
+                            <img src="${item.imgs[2]}" alt="Imagen de categoría 3" class="hidden w-[20%] img-clase-3">
                         </div>`
                 )
                 .join("");
-
+            //Cambiar el fondo de cuadrícula según la categoría
+            grid.style.backgroundColor = categoryColors[category];
             // Estilo original para todos los botones
             buttons.forEach((btn) => {
                 btn.style.backgroundColor = ""; // Fondo original
                 btn.style.color = "#4e342e"; // Color original del texto
                 btn.style.borderRadius = "0"; // Sin bordes redondeados
-                btn.style.padding = "0"; // Restablecer espacio
+                btn.style.padding = "0";// Restablecer espacio
+                btn.classList.remove("active"); //Eliminación clase activa
             });
 
             // Estilo para el botón seleccionado
-            button.style.backgroundColor = "#f4e8df"; // Color suave
+            button.style.backgroundColor = color; // Color suave
             button.style.color = "#4e342e"; // Color del texto
             button.style.borderRadius = "12px"; // Bordes redondeados
             button.style.padding = "6px 8px"; // Espaciado interno
             grid.style.marginTop = "-15px";
+            //boton marcado como activo, le añadimos una serie
+            button.classList.add("active");
             });
         });
     </script>
