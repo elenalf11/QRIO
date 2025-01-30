@@ -85,7 +85,7 @@
   .card {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 110%;
     transform-style: preserve-3d;
     transition: transform 1s ease-in-out;
     margin-top: 2%;
@@ -123,10 +123,18 @@
     font-size: 24px;
     font-weight: bold;
     color: white;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px 10px;
     border-radius: 8px;
-    display: none; /* Oculto por defecto */
+    display: none;
+  }
+
+  #image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: grayscale(100%) opacity(50%);
+    z-index: 10;
   }
 </style>
 
@@ -142,13 +150,13 @@
       <!-- DIV SOBRE -->
       <div id="sobreContainer" class="relative w-full h-full">
         <img
-          class="top-9 z-10 absolute inset-0 w-full h-full object-cover"
+          class="top-9 z-10 absolute inset-0 w-full h-full object-cover mt-10"
           src="/Elementos_Qrio/sobre2.png"
           alt="Sobre Qrio"
         />
         <img
           id="sobre1"
-          class="z-20 absolute w-full h-auto object-contain"
+          class="z-20 absolute w-full h-auto object-contain mt-10"
           src="/Elementos_Qrio/sobre1.png"
           alt="Rasgar sobre"
         />
@@ -156,7 +164,7 @@
       <!-- DIV CARTA -->
       <div
         id="cartaContainer"
-        class="top-0 right-0 bottom-0 left-0 -z-10 absolute inset-0 m-auto rounded-2xl w-[88%]"
+        class="top-0 right-0 bottom-0 left-0 -z-10 absolute inset-0 m-auto rounded-2xl w-[88%] mt-10"
       >
         <div id="carta" class="card">
           <div class="card-face card-front"></div>
@@ -166,7 +174,8 @@
     </div>
   </div>
   <!-- Contenedor del temporizador -->
-  <div id="timer">30</div>
+  <div id="image" class="mt-20"></div>
+  <div id="timer"></div>
 </section>
 
 <script>
@@ -231,20 +240,37 @@
       const timer = document.getElementById("timer");
       let timeLeft = seconds;
 
+      const divImage = document.querySelector("#image");
+
       clearInterval(timerInterval); // Asegura que no haya múltiples intervalos
-      timer.textContent = timeLeft; // Muestra directamente el tiempo inicial
-      timer.style.display = "block";
 
-      timerInterval = setInterval(() => {
-        timeLeft--;
+      setTimeout(() => {
+        // Aparece el temporizador después de 1 segundo
         timer.textContent = timeLeft;
+        timer.style.display = "block";
 
-        if (timeLeft <= 0) {
-          clearInterval(timerInterval);
-          timer.style.display = "none";
-          resetAnimation();
-        }
-      }, 1000);
+        // Aparece el sobre en blanco y negro después de 1 segundo
+        const img = document.createElement("img");
+        img.src = "../../public/Elementos_Qrio/sobre.png";
+        img.alt = "sobre en blanco y negro";
+        img.width = 200;
+        divImage.appendChild(img);
+
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          timer.textContent = timeLeft;
+
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            timer.style.display = "none";
+
+            // Eliminar la imagen después de que se acabe el temporizador
+            divImage.innerHTML = ""; // Elimina el contenido del contenedor de la imagen
+
+            resetAnimation();
+          }
+        }, 1000);
+      }, 1000); // Retrasa la aparición del temporizador y la imagen del sobre
     }
 
     function resetAnimation() {
