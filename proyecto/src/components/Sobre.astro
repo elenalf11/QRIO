@@ -114,6 +114,20 @@
   .show-back {
     transform: rotateY(180deg) !important;
   }
+
+  #timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: none; /* Oculto por defecto */
+  }
 </style>
 
 <section class="flex justify-center items-center m-8">
@@ -139,32 +153,32 @@
           alt="Rasgar sobre"
         />
       </div>
-
       <!-- DIV CARTA -->
       <div
         id="cartaContainer"
         class="top-0 right-0 bottom-0 left-0 -z-10 absolute inset-0 m-auto rounded-2xl w-[88%]"
       >
         <div id="carta" class="card">
-          <!-- Cara frontal -->
           <div class="card-face card-front"></div>
-
-          <!-- Cara trasera -->
           <div class="card-back card-face"></div>
         </div>
       </div>
     </div>
   </div>
+  <!-- Contenedor del temporizador -->
+  <div id="timer">30</div>
 </section>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     let clickCount = 0;
+    let timerInterval;
 
     function handleClick() {
       const sobre = document.getElementById("sobre1");
       const carta = document.getElementById("carta");
       const sobreContainer = document.getElementById("sobreContainer");
+      const timer = document.getElementById("timer");
 
       if (clickCount === 0) {
         if (sobre) {
@@ -207,57 +221,70 @@
         if (carta) {
           carta.classList.add("move-and-shrink");
         }
-        clickCount++;
+
+        clickCount = 0; // Reinicia para el siguiente ciclo
+        startTimer(30);
       }
     }
 
-    const animationContainer = document.getElementById("animationContainer");
-    if (animationContainer) {
-      animationContainer.addEventListener("click", handleClick);
-    } else {
-      console.error(
-        "El contenedor de animación 'animationContainer' no fue encontrado."
-      );
+    function startTimer(seconds) {
+      const timer = document.getElementById("timer");
+      let timeLeft = seconds;
+
+      clearInterval(timerInterval); // Asegura que no haya múltiples intervalos
+      timer.textContent = timeLeft; // Muestra directamente el tiempo inicial
+      timer.style.display = "block";
+
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        timer.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          timer.style.display = "none";
+          resetAnimation();
+        }
+      }, 1000);
     }
+
+    function resetAnimation() {
+      const sobre = document.getElementById("sobre1");
+      const sobreContainer = document.getElementById("sobreContainer");
+      const carta = document.getElementById("carta");
+
+      // Reinicia las clases de animación
+      sobre.classList.remove("fade-out-left");
+      sobreContainer.classList.remove("fade-out");
+      carta.classList.remove("move-and-shrink", "flip-card");
+
+      // Carga una nueva carta aleatoria
+      loadRandomCard();
+    }
+
+    function loadRandomCard() {
+      const frontImages = [
+        "/Elementos_Qrio/ilus_azul1.png",
+        "/Elementos_Qrio/ilus_rosa1.png",
+        "/Elementos_Qrio/ilus_verde1.png",
+      ];
+
+      const backImages = [
+        "/Elementos_Qrio/ilus_azul2.png",
+        "/Elementos_Qrio/ilus_rosa2.png",
+        "/Elementos_Qrio/ilus_verde2.png",
+      ];
+
+      const index = Math.floor(Math.random() * frontImages.length);
+
+      document.querySelector(".card-front").style.backgroundImage =
+        `url(${frontImages[index]})`;
+      document.querySelector(".card-back").style.backgroundImage =
+        `url(${backImages[index]})`;
+    }
+
+    document
+      .getElementById("animationContainer")
+      .addEventListener("click", handleClick);
+    window.onload = loadRandomCard;
   });
-
-  window.onload = () => {
-    const frontImages: string[] = [
-      "/Elementos_Qrio/ilus_azul1.png",
-      "/Elementos_Qrio/ilus_rosa1.png",
-      "/Elementos_Qrio/ilus_verde1.png",
-    ];
-
-    const backImages: string[] = [
-      "/Elementos_Qrio/ilus_azul2.png",
-      "/Elementos_Qrio/ilus_rosa2.png",
-      "/Elementos_Qrio/ilus_verde2.png",
-    ];
-
-    const getRandomImage = (
-      images: string[]
-    ): { image: string; index: number } => {
-      const index = Math.floor(Math.random() * images.length);
-      return { image: images[index], index };
-    };
-
-    const { image: randomFrontImage, index } = getRandomImage(frontImages);
-
-    const randomBackImage = backImages[index];
-
-    console.log("Imagen frontal seleccionada:", randomFrontImage);
-    console.log("Imagen trasera correspondiente:", randomBackImage);
-
-    const cardFront = document.querySelector(".card-front") as HTMLElement;
-    const cardBack = document.querySelector(".card-back") as HTMLElement;
-
-    if (cardFront && cardBack) {
-      cardFront.style.backgroundImage = `url(${randomFrontImage})`;
-      cardBack.style.backgroundImage = `url(${randomBackImage})`;
-    } else {
-      console.error(
-        "Los elementos .card-front o .card-back no fueron encontrados."
-      );
-    }
-  };
 </script>
