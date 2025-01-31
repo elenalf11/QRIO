@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Avatar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col items-center bg-gray-100 py-10">
+
+    <!-- Contenedor de la imagen de perfil grande -->
+    <div class="mb-6">
+        <img id="profileImage" src="/avatares/icono_perfil.png" alt="Avatar" 
+             class="border-4 shadow-lg border-black rounded-full w-32 h-32">
+    </div>
+
+    <!-- Contenedor de las imágenes pequeñas -->
+    <div class="flex flex-wrap justify-center gap-4">
+        <img src="/avatares/avatar1.png" class="border-2 hover:border-black rounded-full w-16 h-16 transform transition cursor-pointer avatar-option hover:scale-110" onclick="changeAvatar(this)">
+        <img src="/avatares/avatar2.png" class="border-2 hover:border-black rounded-full w-16 h-16 transform transition cursor-pointer avatar-option hover:scale-110" onclick="changeAvatar(this)">
+        <img src="/avatares/avatar3.png" class="border-2 hover:border-black rounded-full w-16 h-16 transform transition cursor-pointer avatar-option hover:scale-110" onclick="changeAvatar(this)">
+        <img src="/avatares/avatar4.png" class="border-2 hover:border-black rounded-full w-16 h-16 transform transition cursor-pointer avatar-option hover:scale-110" onclick="changeAvatar(this)">
+        <img src="/avatares/avatar5.png" class="border-2 hover:border-black rounded-full w-16 h-16 transform transition cursor-pointer avatar-option hover:scale-110" onclick="changeAvatar(this)">
+        <img src="/avatares/avatar6.png" class="border-2 hover:border-black rounded-full w-16 h-16 transform transition cursor-pointer avatar-option hover:scale-110" onclick="changeAvatar(this)">
+        <img src="/avatares/avatar7.png" class="border-2 hover:border-black rounded-full w-16 h-16 transform transition cursor-pointer avatar-option hover:scale-110" onclick="changeAvatar(this)">
+        
+    </div>
+    
+<div class="flex justify-center items-center mt-5">
+    <p class="font-fuente text-2xl"><b>Perfil</b></p>
+</div>
+<section class="border-2 bg-[#F4E8DF] mt-7 mr-7 mb-20 ml-7 border-black">
+    <div class="mt-5 mb-5 ml-14">
+        <div class="mb-5">
+            <label for="nombre" class="block mb-2 font-fuente text-2xl">Nombre</label>
+            <input type="text" id="nombre" class="border-2 border-black rounded-2xl w-48 h-10">
+        </div>
+        <div class="mb-5">
+            <label for="email" class="block mb-2 font-fuente text-2xl">Email</label>
+            <input type="text" id="email" class="border-2 border-black rounded-2xl w-48 h-10">
+        </div>
+        <div>
+            <label for="password" class="block mb-2 font-fuente text-2xl">Contraseña</label>
+            <input type="password" id="password" class="border-2 border-black rounded-2xl w-48 h-10">
+        </div>
+        <div class="space-y-3 mt-5">
+            <h1 class="font-fuente text-2xl">Medallas</h1>
+            <h2 class="ml-3 font-fuente text-xl">Bronce      9/14</h2>
+            <h2 class="ml-3 font-fuente text-xl">Plata       4/14</h2>
+            <h2 class="ml-3 font-fuente text-xl">Oro         3/14</h2>
+        </div>
+        <div>
+            <div class="space-y-3 mt-5">
+                <h1 class="font-fuente text-2xl">Cartas obtenidas</h1>
+                <h2 class="ml-3 font-fuente text-xl">Deporte      9/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Biología       4/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Historia         3/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Gastronomía      9/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Arte       4/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Astronomía       3/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Informática      9/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Ed. Sexual       4/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Cine       3/14</h2>
+            </div>
+        </div>
+        <div class="mt-5">
+            <button class="border-2 bg-[#EAD8C5] border-black rounded-2xl w-52 h-14 font-bold text-lg"><b>Cerrar sesión</b></button>
+        </div>
+    </div>
+</section>
+</Layout>
+<script>
+    // Esperar a que el DOM esté completamente cargado
+    document.addEventListener("DOMContentLoaded", function() {
+        const profileImage = document.getElementById("profileImage");
+        const avatars = document.querySelectorAll(".avatar-option");
+
+        // Verificar si el elemento existe antes de agregar eventos
+        if (profileImage) {
+            avatars.forEach(avatar => {
+                avatar.addEventListener("click", function(this: HTMLImageElement) {
+                    console.log("Cambiando avatar a:", this.src); // Depuración
+                    profileImage.src = (this as HTMLImageElement).src;
+
+                    // Remover borde azul de todos
+                    avatars.forEach(img => img.classList.remove("border-blue-500"));
+
+                    // Agregar borde azul al seleccionado
+                    this.classList.add("border-blue-500");
+                });
+            });
+        } else {
+            console.error("❌ Error: No se encontró el elemento 'profileImage'.");
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+<div class="flex justify-center items-center mt-5">
+    <p class="font-fuente text-2xl"><b>Perfil</b></p>
+</div>
+<section class="border-2 bg-[#F4E8DF] mt-7 mr-7 mb-20 ml-7 border-black">
+    <div class="mt-5 mb-5 ml-14">
+        <div class="mb-5">
+            <label for="nombre" class="block mb-2 font-fuente text-2xl">Nombre</label>
+            <input type="text" id="nombre" class="border-2 border-black rounded-2xl w-48 h-10">
+        </div>
+        <div class="mb-5">
+            <label for="email" class="block mb-2 font-fuente text-2xl">Email</label>
+            <input type="text" id="email" class="border-2 border-black rounded-2xl w-48 h-10">
+        </div>
+        <div>
+            <label for="password" class="block mb-2 font-fuente text-2xl">Contraseña</label>
+            <input type="password" id="password" class="border-2 border-black rounded-2xl w-48 h-10">
+        </div>
+        <div class="space-y-3 mt-5">
+            <h1 class="font-fuente text-2xl">Medallas</h1>
+            <h2 class="ml-3 font-fuente text-xl">Bronce      9/14</h2>
+            <h2 class="ml-3 font-fuente text-xl">Plata       4/14</h2>
+            <h2 class="ml-3 font-fuente text-xl">Oro         3/14</h2>
+        </div>
+        <div>
+            <div class="space-y-3 mt-5">
+                <h1 class="font-fuente text-2xl">Cartas obtenidas</h1>
+                <h2 class="ml-3 font-fuente text-xl">Deporte      9/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Biología       4/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Historia         3/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Gastronomía      9/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Arte       4/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Astronomía       3/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Informática      9/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Ed. Sexual       4/14</h2>
+                <h2 class="ml-3 font-fuente text-xl">Cine       3/14</h2>
+            </div>
+        </div>
+        <div class="mt-5">
+            <button class="border-2 bg-[#EAD8C5] border-black rounded-2xl w-52 h-14 font-bold text-lg"><b>Cerrar sesión</b></button>
+        </div>
+    </div>
+</section>
