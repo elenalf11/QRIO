@@ -6,22 +6,37 @@ import Layout from "../layouts/Layout.astro";
     <section class="relative flex flex-col bg-[#eaddc5] w-full min-h-screen">
         <!-- Menú de categorías -->
         <div class="bg-[#ead8c5] shadow-md">
-            <div class="flex flex-1 justify-center items-center py-2">
-                <button data-category="gastronomia" class="mx-2 font-fuente font-semibold text-[#4e342e] hover:underline category-btn">
+        <!-- Para el uso del scrollbar se tiene que usar el suigiente comando en la terminal: npm install tailwind-scrollbar -->
+         <!-- En caso de que de errores, utiliza este comando para solucionarlos: npm audit fix -->
+          <!-- Si despues de usar el comando anterior persisten los errores utiliza el siguiente comando: npm audit fix --force (hay que tener cuidado con este comando porque puedes actualizar paquetes a versiones incompatibles) -->
+            <div class="max-w-[92%] sm:max-w-[85%] mx-auto flex overflow-x-scroll gap-4 py-2 touch-pan-x snap-x snap-mandatory scrollbar-thin scrollbar-thumb-[#bc7a6d] scrollbar-track-[#ead8c5] scrollbar-hidden-pc">
+                <button data-category="gastronomia" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
                     Gastronomía
                 </button>
-                <button data-category="arte" class="mx-2 font-fuente font-semibold text-[#4e342e] hover:underline category-btn">
+                <button data-category="arte" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
                     Arte
                 </button>
-                <button data-category="biologia" class="mx-2 font-fuente font-semibold text-[#4e342e] hover:underline category-btn">
+                <button data-category="biologia" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
                     Biología
                 </button>
-                <button data-category="deporte" class="mx-2 font-fuente font-semibold text-[#4e342e] hover:underline category-btn">
+                <button data-category="deporte" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
                     Deporte
                 </button>
-                <button data-category="historia" class="mx-2 font-fuente font-semibold text-[#4e342e] hover:underline category-btn">
+                <button data-category="historia" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
                     Historia
                 </button>
+                <button data-category="astronomia" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                    Astronomía 
+                 </button>
+                 <button data-category="cine" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                     Cine
+                 </button>
+                 <button data-category="ed_sexual" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                     Ed. Sexual
+                 </button>
+                 <button data-category="informatica" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                     Informática
+                 </button>
             </div>
 
             <!-- Contenedor de la cuadrícula -->
@@ -127,6 +142,24 @@ import Layout from "../layouts/Layout.astro";
             ],
 
             deporte : [
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+            ],
+            historia : [
                 {img: "./media/cruz_mejorada.png"},
                 {img: "./media/cruz_mejorada.png"},
                 {img: "./media/cruz_mejorada.png"},
@@ -144,7 +177,61 @@ import Layout from "../layouts/Layout.astro";
                 {img: "./media/cruz_mejorada.png"},
                 {img: "./media/cruz_mejorada.png"},
             ],
-            historia : [
+            astronomia : [
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+            ],
+            cine : [
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+            ],
+            ed_sexual : [
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+                {img: "./media/cruz_mejorada.png"},
+            ],
+            informatica : [
                 {img: "./media/cruz_mejorada.png"},
                 {img: "./media/cruz_mejorada.png"},
                 {img: "./media/cruz_mejorada.png"},
@@ -198,6 +285,14 @@ import Layout from "../layouts/Layout.astro";
                         </div>`
                 )
                 .join("");
+            
+            // Establecer margen dinámico según el tamaño de la pantalla
+            if (window.innerWidth >= 640) { // sm: 640px en Tailwind
+                grid.style.marginTop = "-18px"; // Mayor o igual a sm
+            } else {
+                grid.style.marginTop = "-18px"; // Menor a sm
+            }
+
             //Cambiar el fondo de cuadrícula según la categoría
             grid.style.backgroundColor = categoryColors[category];
             // Estilo original para todos los botones
@@ -214,10 +309,17 @@ import Layout from "../layouts/Layout.astro";
             button.style.color = "#4e342e"; // Color del texto
             button.style.borderRadius = "12px"; // Bordes redondeados
             button.style.padding = "6px 8px"; // Espaciado interno
-            grid.style.marginTop = "-15px";
             //boton marcado como activo, le añadimos una serie
             button.classList.add("active");
             });
         });
+
+    // Simula un clic en el botón de "Gastronomía" cuando se carga la página
+    document.addEventListener("DOMContentLoaded", () => {
+        const defaultCategoryButton = document.querySelector("[data-category='gastronomia']");
+        if (defaultCategoryButton) {
+            defaultCategoryButton.click(); // Simula el clic
+        }
+    });
     </script>
 </Layout>

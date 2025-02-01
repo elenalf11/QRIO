@@ -1,4 +1,14 @@
 @font-face {
-    font-family: 'League Spartan';
-    src: url("/public/fonts/LeagueSpartan-VariableFont_wght.ttf");
+  font-family: "League Spartan";
+  src: url("/public/fonts/LeagueSpartan-VariableFont_wght.ttf");
+}
+
+@media (min-width: 768px) {
+  .scrollbar-hidden-pc::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hidden-pc {
+    scrollbar-width: none; /* Para Firefox */
+  }
 }
