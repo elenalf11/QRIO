@@ -9,32 +9,32 @@ import Layout from "../layouts/Layout.astro";
         <!-- Para el uso del scrollbar se tiene que usar el suigiente comando en la terminal: npm install tailwind-scrollbar -->
          <!-- En caso de que de errores, utiliza este comando para solucionarlos: npm audit fix -->
           <!-- Si despues de usar el comando anterior persisten los errores utiliza el siguiente comando: npm audit fix --force (hay que tener cuidado con este comando porque puedes actualizar paquetes a versiones incompatibles) -->
-            <div class="max-w-[92%] sm:max-w-[85%] mx-auto flex overflow-x-scroll gap-4 py-2 touch-pan-x snap-x snap-mandatory scrollbar-thin scrollbar-thumb-[#bc7a6d] scrollbar-track-[#ead8c5] scrollbar-hidden-pc">
-                <button data-category="gastronomia" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+            <div class="flex gap-4 scrollbar-hidden-pc mx-auto scrollbar-thumb-[#bc7a6d] py-2 snap-mandatory snap-x max-w-[92%] sm:max-w-[85%] touch-pan-x overflow-x-scroll scrollbar-thin scrollbar-track-[#ead8c5]">
+                <button data-category="gastronomia" class="flex-shrink-0 snap-start w-32 font-fuente font-semibold text-[#4e342e] hover:underline category-btn focus:outline-none">
                     Gastronomía
                 </button>
-                <button data-category="arte" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                <button data-category="arte" class="flex-shrink-0 snap-start w-32 font-fuente font-semibold text-[#4e342e] hover:underline category-btn focus:outline-none">
                     Arte
                 </button>
-                <button data-category="biologia" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                <button data-category="biologia" class="flex-shrink-0 snap-start w-32 font-fuente font-semibold text-[#4e342e] hover:underline category-btn focus:outline-none">
                     Biología
                 </button>
-                <button data-category="deporte" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                <button data-category="deporte" class="flex-shrink-0 snap-start w-32 font-fuente font-semibold text-[#4e342e] hover:underline category-btn focus:outline-none">
                     Deporte
                 </button>
-                <button data-category="historia" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                <button data-category="historia" class="flex-shrink-0 snap-start w-32 font-fuente font-semibold text-[#4e342e] hover:underline category-btn focus:outline-none">
                     Historia
                 </button>
-                <button data-category="astronomia" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                <button data-category="astronomia" class="flex-shrink-0 snap-start w-32 font-fuente font-semibold text-[#4e342e] hover:underline category-btn focus:outline-none">
                     Astronomía 
                  </button>
-                 <button data-category="cine" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                 <button data-category="cine" class="flex-shrink-0 snap-start w-32 font-fuente font-semibold text-[#4e342e] hover:underline category-btn focus:outline-none">
                      Cine
                  </button>
-                 <button data-category="ed_sexual" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                 <button data-category="ed_sexual" class="flex-shrink-0 snap-start w-32 font-fuente font-semibold text-[#4e342e] hover:underline category-btn focus:outline-none">
                      Ed. Sexual
                  </button>
-                 <button data-category="informatica" class="category-btn flex-shrink-0 w-32 text-[#4e342e] font-semibold hover:underline font-fuente snap-start focus:outline-none">
+                 <button data-category="informatica" class="flex-shrink-0 snap-start w-32 font-fuente font-semibold text-[#4e342e] hover:underline category-btn focus:outline-none">
                      Informática
                  </button>
             </div>
@@ -81,194 +81,206 @@ import Layout from "../layouts/Layout.astro";
         <img src="./media/seta.png" alt="Figura de seta" class="right-4 bottom-12 fixed w-24 h-auto">
     </section>
 
+    <!-- Modal para ampliar imagen -->
+    <div id="imageModal" class="z-50 fixed inset-0 flex justify-center items-center hidden bg-black bg-opacity-80 transition-opacity duration-300">
+        <img id="modalImage" class="opacity-0 shadow-lg rounded-lg max-w-[90%] max-h-[90%] transform transition-all duration-300 scale-75">
+    </div>
+
     <!--Script para cambiar la cuadricula dinamicamente -->
     <script>
         const categories ={
             gastronomia : [
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_rosa1.png", "./Elementos_Qrio/ilus_rosa2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_gastronomia1.png", "./Elementos_Qrio/ilus_gastronomia2.png", "./media/cruz_mejorada.png"] },
             ],
 
             arte : [
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_azul1.png", "./Elementos_Qrio/ilus_azul2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_arte1.png", "./Elementos_Qrio/ilus_arte2.png", "./media/cruz_mejorada.png"] },
             ],
 
             biologia : [
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_biologia1.png", "./Elementos_Qrio/ilus_biologia2.png", "./media/cruz_mejorada.png"] },
             ],
 
             deporte : [
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
-                { imgs: ["./Elementos_Qrio/ilus_verde1.png", "./Elementos_Qrio/ilus_verde2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_deporte1.png", "./Elementos_Qrio/ilus_deporte2.png", "./media/cruz_mejorada.png"] },
             ],
+
             historia : [
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_historia1.png", "./Elementos_Qrio/ilus_historia2.png", "./media/cruz_mejorada.png"] },
             ],
+
             astronomia : [
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_astronomia1.png", "./Elementos_Qrio/ilus_astronomia2.png", "./media/cruz_mejorada.png"] },
             ],
+
             cine : [
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_cine1.png", "./Elementos_Qrio/ilus_cine2.png", "./media/cruz_mejorada.png"] },
             ],
+            
             ed_sexual : [
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_edsex1.png", "./Elementos_Qrio/ilus_edsex2.png", "./media/cruz_mejorada.png"] },
             ],
+
             informatica : [
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
-                {img: "./media/cruz_mejorada.png"},
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
+                { imgs: ["./Elementos_Qrio/ilus_informatica1.png", "./Elementos_Qrio/ilus_informatica2.png", "./media/cruz_mejorada.png"] },
             ],
-  
         };
-        //Mapa de colores para el fondo cuadricula
+
+        // APLICAR COLORES A CADA CATEGORÍA
         const categoryColors = {
-        gastronomia: "#ff99c8",
-        arte: "#90e0ef",
-        biologia: "#6a994e",
-        deporte: "#c77dff",
-        historia: "#fcf6bd",
-    };
-        // Selecciona todos los botones y el contenedor de la cuadrícula
+            gastronomia: "#ff99c8",
+            arte: "#90e0ef",
+            biologia: "#6a994e",
+            deporte: "#c77dff",
+            historia: "#fcf6bd",
+            astronomia: "#436af3",
+            cine: "#c2dfef",
+            ed_sexual: "#c5aef1",
+            informatica: "#fe8900"
+        };
         const buttons = document.querySelectorAll(".category-btn");
         const grid = document.getElementById("grid");
         "Sombras cuadricula base"
         grid.classList.add("shadow-lg", "rounded-lg");
        
-        //Iteración sobre cada elemento de la categoría
+        // AÑADIR IMÁGENES A CADA CATEGORÍA
         buttons.forEach((button) => {
             button.addEventListener("click", () => {
-                //Categoria asociada al boton pulsado
                 const category = button.getAttribute("data-category");
                 //Obtiene los elementos (items) de la categoría seleccionada
                 const items = categories[category];
@@ -279,18 +291,18 @@ import Layout from "../layouts/Layout.astro";
                 .map(
                     (item) =>
                         `<div class="flex flex-row justify-around items-center bg-[#f4f0ed] shadow-md rounded-lg h-28 md:h-40 lg:h-48 xl:h-44 font-bold font-fuente text-[#4e342e]">
-                            <img src="${item.imgs[0]}" alt="Imagen de categoría 1" class="w-[37%] img-clase-1">
-                            <img src="${item.imgs[1]}" alt="Imagen de categoría 2" class="w-[45%] img-clase-2">
+                            <img src="${item.imgs[0]}" alt="Imagen de categoría 1" class="w-[42%] img-clase-1">
+                            <img src="${item.imgs[1]}" alt="Imagen de categoría 2" class="w-[40%] img-clase-2">
                             <img src="${item.imgs[2]}" alt="Imagen de categoría 3" class="hidden w-[20%] img-clase-3">
                         </div>`
                 )
                 .join("");
             
             // Establecer margen dinámico según el tamaño de la pantalla
-            if (window.innerWidth >= 640) { // sm: 640px en Tailwind
-                grid.style.marginTop = "-18px"; // Mayor o igual a sm
+            if (window.innerWidth >= 640) {
+                grid.style.marginTop = "-18px";
             } else {
-                grid.style.marginTop = "-18px"; // Menor a sm
+                grid.style.marginTop = "-18px";
             }
 
             //Cambiar el fondo de cuadrícula según la categoría
@@ -320,6 +332,55 @@ import Layout from "../layouts/Layout.astro";
         if (defaultCategoryButton) {
             defaultCategoryButton.click(); // Simula el clic
         }
+    });
+
+    // AGRANDAR CARTA AL HACER CLICK EN UNA
+    const imageModal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+
+    function openModal(imageSrc) {
+        modalImage.src = imageSrc;
+        imageModal.classList.remove("hidden");
+        setTimeout(() => {
+            modalImage.classList.remove("scale-75", "opacity-0");
+            modalImage.classList.add("scale-100", "opacity-100");
+        }, 10);
+    }
+
+    function closeModal() {
+        modalImage.classList.remove("scale-100", "opacity-100");
+        modalImage.classList.add("scale-75", "opacity-0");
+        setTimeout(() => {
+            imageModal.classList.add("hidden");
+        }, 300);
+    }
+
+    imageModal.addEventListener("click", (event) => {
+        if (event.target === imageModal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeModal();
+        }
+    });
+
+    function addClickEventToImages() {
+        document.querySelectorAll(".img-clase-1, .img-clase-2").forEach(img => {
+            img.addEventListener("click", () => openModal(img.src));
+        });
+    }
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            setTimeout(addClickEventToImages, 100);
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(addClickEventToImages, 100);
     });
     </script>
 </Layout>
