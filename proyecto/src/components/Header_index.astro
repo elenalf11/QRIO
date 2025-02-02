@@ -1,6 +1,5 @@
-<header class="grid grid-cols-4 bg-color1 lg:mx-52 my-5 rounded-xl font-fuente">
-
-    <div class="hover:bg-color2 focus:bg-color2 pt-10 pb-8 rounded-xl font-bold text-center menu">
+<header class="justify-between grid grid-cols-4 bg-color1 lg:mx-52 my-5 rounded-xl lg:w-[1500px] font-fuente">
+    <div class="hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl font-bold text-center menu">
         <!-- Botón de menú -->
         <div class="flex flex-col justify-center justify-items-center items-center lg:ml-[50%] cursor-pointer align-middle menu-btn">
             <div class="bg-[#000000] w-6 h-1"></div>
@@ -23,17 +22,19 @@
         </div>
       </div>
 
-    <div class="flex flex-col justify-center justify-items-center items-center hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl text-center align-middle">
+    <div class="hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl text-center">
         <a href="/coleccion" class="font-bold text-xl lg:text-2xl">Colección</a>
     </div>
-    <div class="flex flex-col justify-center justify-items-center items-center hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl text-center align-middle">
+    <div class="hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl text-center">
         <a href="/medallas" class="font-bold text-xl lg:text-2xl">Medallas</a>
     </div>
-    <div class="flex flex-col justify-center justify-items-center items-center hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl text-center align-middle">
+    <div class="hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl text-center">
         <a href="/comunidad" class="font-bold text-xl lg:text-2xl">Comunidad</a>
     </div>
+    <div class="lg:block absolute hidden mt-12 ml-[1400px] rounded-full size-48">
+        <img src="seta.png">
+    </div>
 </header>
-
 <script>
     // Selección de elementos
     const menuBtn = document.querySelector(".menu-btn");

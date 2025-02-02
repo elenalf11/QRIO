@@ -1,0 +1,21 @@
+---
+import Footer from "../components/Footer.astro";
+import Header_index from "../components/Header_index.astro";
+import '../styles/fonts.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>QRIO</title>
+  </head>
+  <body>
+    <Header_index />
+    <slot />
+    <Footer />
+  </body>
+</html>
