@@ -1,64 +1,248 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
+import LayoutMedallas from '../layouts/LayoutMedallas.astro';
 ---
 
-<Layout>
-	<br>
-	<div class="w-80 [background-color:#ffffff] border drop-shadow-lg [border-color:#000000] rounded-lg shadow-md p-4 relative mx-auto ">
-        
-        <div>
+
+
+
+<LayoutMedallas>
+    <br>
+    <div class="w-80 bg-[#ffffff]  rounded-[50px] shadow-[0_10px_5px_rgba(0,0,0,0.35)] p-4 relative mx-auto md:w-[80%] hover:scale-105 hover:shadow-[0_10px_25px_rgba(0,0,0,0.35)] duration-300 ease-in">
+        <!-- Imagen en la esquina -->
+        <img src="esquina.png" alt="Decoración esquina" class="absolute top-[-20px] left-[-20px] w-56 h-56">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
             <!-- Categoría Gastronomía -->
-            <div class="mb-6">
-                <h2 class="text-center text-lg font-bold text-[#E57373] mb-2">Gastronomía</h2>
-                <div class="flex justify-around">
-                    <div class="w-10 h-10  rounded-full">
-						<img src="medalla_bronce.png" alt="">
-					</div>
-                    <div class="w-10 h-10  rounded-full">
-						<img src="medalla.png" alt="">
-					</div>
-                    <div class="w-10 h-10  rounded-full">
-						<img src="medalla.png" alt="">
-					</div>
+            <div class="mb-6 pt-10">
+                <div class="flex flex-col items-center">
+
+
+                    <!-- Título como imagen -->
+                    <div class="mb-4">
+                        <img src="gastronomia.png" alt="" class="w-28 h-14">
+                    </div>
+
+
+                    <!-- Medallas -->
+                    <div class="flex justify-around w-full bg-color1  rounded-2xl h-4 shadow-[0_10px_5px_rgba(0,0,0,0.35)]">
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_oro.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_plata.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_bronce.png" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Categoría Arte -->
             <div class="mb-6 pt-10">
-                <h2 class="text-center text-lg font-bold text-[#81C784] mb-2">Arte</h2>
-                <div class="flex justify-around">
-                    <div class="w-10 h-10  rounded-full">
-						<img src="medalla_bronce.png" alt="">
-					</div>
-                    <div class="w-10 h-10  rounded-full">
-						<img src="medalla_plata.png" alt="">
-					</div>
-                    <div class="w-10 h-10  rounded-full">
-						<img src="medalla.png" alt="">
-					</div>
+                <div class="flex flex-col items-center">
+
+
+                    <!-- Título como imagen -->
+                    <div class="mb-4">
+                        <img src="Arte.png" alt="" class="w-28 h-14">
+                    </div>
+
+
+                    <!-- Medallas -->
+                    <div class="flex justify-around w-full bg-color1  rounded-2xl h-4 shadow-[0_10px_5px_rgba(0,0,0,0.35)]">
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_bronce.png" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Categoría Biología -->
-            <div class="pt-10">
-                <h2 class="text-center text-lg font-bold text-[#4FC3F7] mb-2">Biología</h2>
-                <div class="flex justify-around">
-                    <div class="w-10 h-10  rounded-full">
-						<img src="medalla_bronce.png" alt="">
-					</div>
-                    <div class="w-10 h-10  rounded-full">
-						<img src="medalla_plata.png" alt="">
-					</div>
-                    <div class="w-10 h-10  rounded-full">
-						<img src="medalla_oro.png" alt="">
-					</div>
+            <!-- Categoría Deporte -->
+            <div class="mb-6 pt-10">
+                <div class="flex flex-col items-center">
+
+
+                    <!-- Título como imagen -->
+                    <div class="mb-4">
+                        <img src="deporte.png" alt="" class="w-28 h-14">
+                    </div>
+
+
+                    <!-- Medallas -->
+                    <div class="flex justify-around w-full bg-color1  rounded-2xl h-4 shadow-[0_10px_5px_rgba(0,0,0,0.35)]">
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_oro.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_plata.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_bronce.png" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
-			<br>
+            <!-- Categoria Biologia -->
+            <div class="mb-6 pt-10">
+                <div class="flex flex-col items-center">
+
+
+                    <!-- Título como imagen -->
+                    <div class="mb-4">
+                        <img src="biologia.png" alt="" class="w-28 h-14">
+                    </div>
+
+
+                    <!-- Medallas -->
+                    <div class="flex justify-around w-full bg-color1  rounded-2xl h-4 shadow-[0_10px_5px_rgba(0,0,0,0.35)]">
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_plata.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_bronce.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Categoria Astronomia -->
+            <div class="mb-6 pt-10">
+                <div class="flex flex-col items-center">
+
+
+                    <!-- Título como imagen -->
+                    <div class="mb-4">
+                        <img src="astronomia.png" alt="" class="w-28 h-14">
+                    </div>
+
+
+                    <!-- Medallas -->
+                    <div class="flex justify-around w-full bg-color1  rounded-2xl h-4 shadow-[0_10px_5px_rgba(0,0,0,0.35)]">
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_bronce.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Categoria Historia -->
+            <div class="mb-6 pt-10">
+                <div class="flex flex-col items-center">
+
+
+                    <!-- Título como imagen -->
+                    <div class="mb-4">
+                        <img src="historia.png" alt="" class="w-28 h-14">
+                    </div>
+
+
+                    <!-- Medallas -->
+                    <div class="flex justify-around w-full bg-color1  rounded-2xl h-4 shadow-[0_10px_5px_rgba(0,0,0,0.35)]">
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_plata.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_bronce.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Categoria Informatica -->
+            <div class="mb-6 pt-10">
+                <div class="flex flex-col items-center">
+
+
+                    <!-- Título como imagen -->
+                    <div class="mb-4">
+                        <img src="infor.png" alt="" class="w-28 h-14">
+                    </div>
+
+
+                    <!-- Medallas -->
+                    <div class="flex justify-around w-full bg-color1  rounded-2xl h-4 shadow-[0_10px_5px_rgba(0,0,0,0.35)]">
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_oro.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_plata.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_bronce.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Categoria Educacion Sexual -->
+            <div class="mb-6 pt-10">
+                <div class="flex flex-col items-center">
+
+
+                    <!-- Título como imagen -->
+                    <div class="mb-4">
+                        <img src="ed.sex.png" alt="" class="w-28 h-14">
+                    </div>
+
+
+                    <!-- Medallas -->
+                    <div class="flex justify-around w-full bg-color1  rounded-2xl h-4 shadow-[0_10px_5px_rgba(0,0,0,0.35)]">
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Categoria Cine -->
+            <div class="mb-6 pt-10">
+                <div class="flex flex-col items-center">
+
+
+                    <!-- Título como imagen -->
+                    <div class="mb-4">
+                        <img src="cine.png" alt="" class="w-28 h-14">
+                    </div>
+
+
+                    <!-- Medallas -->
+                    <div class="flex justify-around w-full bg-color1 border [border-color:#f9ede1] rounded-2xl h-4 shadow-[0_10px_5px_rgba(0,0,0,0.35)]">
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla.png" alt="">
+                        </div>
+                        <div class="w-10 h-10 rounded-full">
+                            <img src="medalla_bronce.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
         </div>
         <!-- Personaje -->
-        <div class="absolute bottom-2 left-2 w-16 h-16 rounded-full">
-			<br>
-			<img src="seta.png" alt="">
-		</div>
+        <div class="absolute bottom-2 right-0 md:pt-5 w-16 h-16 md:w-28 md:h-28 rounded-full">
+            <br>
+            <img src="seta.png" alt="" class="">
+        </div>
     </div>
-</Layout>
+    <br><br><br><br><br><br>
+</LayoutMedallas>
