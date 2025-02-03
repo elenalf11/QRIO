@@ -1,63 +1,72 @@
-<header class="grid grid-cols-4 bg-color1 lg:mx-52 my-5 rounded-xl font-fuente">
+<header class="justify-between grid grid-cols-3 grid-rows-1 bg-color1 lg:mx-52 mt-5 mr-5 mb-5 rounded-xl w-[90%] lg:w-[78%] font-fuente">
 
-    <div class="hover:bg-color2 focus:bg-color2 pt-10 pb-8 rounded-xl font-bold text-center menu">
-        <!-- Botón de menú -->
-        <div class="flex flex-col justify-center justify-items-center items-center lg:ml-[50%] cursor-pointer align-middle menu-btn">
-            <div class="bg-[#000000] w-6 h-1"></div>
-            <div class="bg-[#000000] my-1 w-6 h-1"></div>
-            <div class="bg-[#000000] w-6 h-1"></div>
-          </div>
-          
-          
-          
-      
-        <!-- Menú desplegable -->
-        <div class="left-0 z-50 fixed inset-y-0 bg-color1 w-64 transform transition-all -translate-x-full duration-500 ease-in-out menu-content">
-          <nav class="flex justify-center items-center gap-10 h-full">
-            <ul class="menu-nav">
-              <li class="mb-4 nav-item">
-                <a href="/perfil" class="font-fuente text-xl hover:text-color4 underline nav-link">Perfil</a>
-              </li>
-              <li class="mb-4 nav-item">
-                <a href="/" class="font-fuente text-xl hover:text-color4 underline nav-link">Inicio</a>
-              </li>
-              <li class="mb-4 nav-item">
-                <a href="/registro" class="font-fuente text-xl hover:text-color4 underline nav-link">Registro</a>
-              </li>
-            </ul>
-          </nav>
+  <div class="lg:block absolute hidden focus:bg-color2 px-5 pt-10 pb-8 rounded-xl font-bold text-center menu">
+      <!-- Botón de menú -->
+      <div class="flex flex-col justify-center justify-items-center items-center lg:ml-[50%] cursor-pointer align-middle menu-btn">
+          <div class="bg-[#000000] w-6 h-1"></div>
+          <div class="bg-[#000000] my-1 w-6 h-1"></div>
+          <div class="bg-[#000000] w-6 h-1"></div>
         </div>
+        
+        
+        
+    
+      <!-- Menú desplegable -->
+      <div class="left-0 z-50 fixed inset-y-0 bg-color2 w-64 transform transition-all -translate-x-full duration-500 ease-in-out menu-content">
+        <nav class="flex justify-center items-center gap-10 h-full">
+          <ul class="menu-nav">
+            <li class="mb-4 nav-item">
+              <a href="/perfil" class="font-fuente text-xl hover:text-color4 underline nav-link">Perfil</a>
+            </li>
+            <li class="mb-4 nav-item">
+              <a href="/" class="font-fuente text-xl hover:text-color4 underline nav-link">Inicio</a>
+            </li>
+            <li class="mb-4 nav-item">
+              <a href="/registro" class="font-fuente text-xl hover:text-color4 underline nav-link">Registro</a>
+            </li>
+          </ul>
+        </nav>
       </div>
+    </div>
 
+  <a href="/coleccion" class="flex flex-col justify-center justify-items-center items-center hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl font-bold text-center text-xl lg:text-2xl cursor-pointer align-middle">Colección</a>
+  <a href="/medallas" class="flex flex-col justify-center justify-items-center items-center hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl font-bold text-center text-xl lg:text-2xl cursor-pointer align-middle">Medallas</a>
+  <a href="/comunidad" class="flex flex-col justify-center justify-items-center items-center hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl font-bold text-center text-xl lg:text-2xl cursor-pointer align-middle">Comunidad</a>
 
-    <div class="flex flex-col justify-center justify-items-center items-center hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl text-center align-middle">
-        <a href="/coleccion" class="font-bold text-xl lg:text-2xl">Colección</a>
-    </div>
-    <div class="flex flex-col justify-center justify-items-center items-center hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl text-center align-middle">
-        <a href="/medallas" class="font-bold text-xl lg:text-2xl">Medallas</a>
-    </div>
-    <div class="flex flex-col justify-center justify-items-center items-center hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl text-center align-middle">
-        <a href="/comunidad" class="font-bold text-xl lg:text-2xl">Comunidad</a>
-    </div>
+  <div class="absolute items-center gap-4 lg:hidden grid grid-rows-2 m-5 mx-[92%]">
+    <!--Icono home -->
+    <a href="/">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+      </svg>
+    </a>
+
+    <!--Icono perfil -->
+    <a href="/perfil">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      </svg>
+    </a>
+  </div>
 </header>
 
 <script>
-  // Selección de elementos
-  const menuBtn = document.querySelector(".menu-btn");
-  const menuContent = document.querySelector(".menu-content");
-  
-    // Función para alternar el menú
-    menuBtn.addEventListener("click", (event) => {
-      event.stopPropagation(); // Evita que el clic en el botón cierre el menú
-      menuContent.classList.toggle("-translate-x-full");
-      menuContent.classList.toggle("translate-x-0");
-    });
-  
-    // Cerrar el menú si se hace clic fuera de él
-    document.addEventListener("click", (event) => {
-      if (!menuContent.contains(event.target) && !menuBtn.contains(event.target)) {
-        menuContent.classList.add("-translate-x-full");
-        menuContent.classList.remove("translate-x-0");
-      }
-    });
+// Selección de elementos
+const menuBtn = document.querySelector(".menu-btn");
+const menuContent = document.querySelector(".menu-content");
+
+  // Función para alternar el menú
+  menuBtn.addEventListener("click", (event) => {
+    event.stopPropagation(); // Evita que el clic en el botón cierre el menú
+    menuContent.classList.toggle("-translate-x-full");
+    menuContent.classList.toggle("translate-x-0");
+  });
+
+  // Cerrar el menú si se hace clic fuera de él
+  document.addEventListener("click", (event) => {
+    if (!menuContent.contains(event.target) && !menuBtn.contains(event.target)) {
+      menuContent.classList.add("-translate-x-full");
+      menuContent.classList.remove("translate-x-0");
+    }
+  });
 </script>

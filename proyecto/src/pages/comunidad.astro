@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout>
-  <main class="py-16">
-<body class="bg-[#EAD8C5]"></body>
-    <div class="md:block hidden md:mt-10 md:mr-60 md:ml-60 font-fuente text-xl"><b><p>¡Hola, Qriosos!
+  <main>
+<body>
+    <div class="md:block hidden bg-color2 shadow-[0_10px_5px_rgba(0,0,0,0.35)] md:mt-10 md:mr-60 md:ml-60 p-4 border-black rounded-2xl font-fuente text-xl"><b><p>¡Hola, Qriosos!
 
       Cada vez que uno de ustedes comparte una curiosidad aquí, es como agregar una nueva joya a nuestro tesoro colectivo de asombro.
       
@@ -17,7 +17,7 @@ import Layout from '../layouts/Layout.astro';
         <img 
           src="/Elementos_Qrio/sobres.png" 
           alt="Imagen para PC" 
-          class="md:block hidden w-1/2 md:w-60">
+          class="hover:scale-110 md:block hidden w-1/2 md:w-60 duration-300 ease-in">
         
         <!-- Imagen para Móvil -->
         <img 
@@ -27,9 +27,12 @@ import Layout from '../layouts/Layout.astro';
       </div>
       
       </section>      
-    <section class="flex justify-center mt-20 md:mt-14">
-        <button class="border-2 bg-color1 border-black rounded-2xl w-52 h-14 font-bold text-lg"><b>Añade tu Qriosidad.</b></button>
+      <section class="flex justify-center mt-20 md:mt-14">
+        <a href="/formulario" class="hover:scale-105 flex justify-center items-center border-2 bg-color2 shadow-[0_10px_5px_rgba(0,0,0,0.35)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.35)] border-black rounded-2xl w-52 h-14 font-bold text-lg duration-300 ease-in">
+            <b>Añade tu Qriosidad.</b>
+        </a>
     </section>
+    
 </body>
 </main>
 </Layout>
