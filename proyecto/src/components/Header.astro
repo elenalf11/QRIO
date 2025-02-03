@@ -12,16 +12,23 @@
           
       
         <!-- Menú desplegable -->
-        <div class="left-0 fixed inset-y-0 w-64 transform transition-all -translate-x-full duration-500 ease-in-out menu-content">
+        <div class="left-0 z-50 fixed inset-y-0 bg-color1 w-64 transform transition-all -translate-x-full duration-500 ease-in-out menu-content">
           <nav class="flex justify-center items-center gap-10 h-full">
             <ul class="menu-nav">
               <li class="mb-4 nav-item">
                 <a href="/perfil" class="font-fuente text-xl hover:text-color4 underline nav-link">Perfil</a>
               </li>
+              <li class="mb-4 nav-item">
+                <a href="/" class="font-fuente text-xl hover:text-color4 underline nav-link">Inicio</a>
+              </li>
+              <li class="mb-4 nav-item">
+                <a href="/registro" class="font-fuente text-xl hover:text-color4 underline nav-link">Registro</a>
+              </li>
             </ul>
           </nav>
         </div>
       </div>
+
 
     <div class="flex flex-col justify-center justify-items-center items-center hover:bg-color2 focus:bg-color2 px-5 pt-10 pb-8 rounded-xl text-center align-middle">
         <a href="/coleccion" class="font-bold text-xl lg:text-2xl">Colección</a>
@@ -35,9 +42,9 @@
 </header>
 
 <script>
-    // Selección de elementos
-    const menuBtn = document.querySelector(".menu-btn");
-    const menuContent = document.querySelector(".menu-content");
+  // Selección de elementos
+  const menuBtn = document.querySelector(".menu-btn");
+  const menuContent = document.querySelector(".menu-content");
   
     // Función para alternar el menú
     menuBtn.addEventListener("click", (event) => {
@@ -53,4 +60,4 @@
         menuContent.classList.remove("translate-x-0");
       }
     });
-  </script>
+</script>
