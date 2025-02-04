@@ -61,12 +61,12 @@
 
         // Verificar las credenciales
         if (usuario === 'admin' && password === 'admin') {
-            // Guardar el estado de la sesión
+
             sessionStorage.setItem('isLoggedIn', 'true');
-            // Redirigir a la página principal
+
             window.location.href = '/principal';
         } else {
-            // Mostrar mensaje de error
+
             errorMessage.textContent = 'Usuario o contraseña incorrectos';
             errorMessage.classList.remove('hidden');
         }

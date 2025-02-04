@@ -5,117 +5,114 @@
     <meta name="description" content="Mi primera página con Astro" />
     <title>Mi página Astro</title>
     <style>
+      @font-face {
+        font-family: 'League Spartan';
+        src: url("/public/fonts/LeagueSpartan-VariableFont_wght.ttf");
+      }
+
       body {
         margin: 0;
-        background-color: #EAD8C5; /* Color de fondo principal */
+        background-color: #EAD8C5;
         display: flex;
         justify-content: center;
-        align-items: flex-start; /* Alineamos todo hacia arriba */
+        align-items: flex-start;
         height: 100vh;
-        padding: 0 40px; /* Añadimos márgenes laterales de 40px */
-        position: relative; /* Necesario para la posición absoluta de las imágenes */
+        font-family: 'League Spartan', sans-serif;
+        padding: 0 40px;
+        position: relative;
       }
 
-      /* Contenedor del body */
       .body-container {
         width: 100%;
-        max-width: 800px; /* Mantener el ancho máximo más estrecho */
-        padding-top: 20px; /* Añadimos algo de margen superior */
-        margin-bottom: 150px; /* Añadimos más espacio en la parte inferior */
-        height: 100%; /* Asegura que el contenedor se estire hasta el fondo */
+        max-width: 800px;
+        padding-top: 20px;
+        margin-bottom: 150px;
+        height: 100%;
       }
 
-      /* Contenedor con margen de 20px por arriba y abajo */
       .container {
-        background-color: #F4E8DF; /* Color de fondo del cuadro */
-        border-radius: 10px; /* Bordes redondeados */
-        padding: 40px; /* Espaciado igual por los cuatro lados */
+        background-color: #F4E8DF;
+        border-radius: 10px;
+        padding: 40px;
         text-align: center;
         width: 100%;
-        max-width: 900px; /* Cuadro más grande en el centro */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra negra semi-opacada */
-        margin-top: 20px; /* Márgenes de 20px arriba */
-        margin-bottom: 20px; /* Márgenes de 20px abajo */
-        height: calc(100vh - 80px); /* Hacemos el contenedor más largo, 80px menos por los márgenes */
+        max-width: 900px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        height: calc(100vh - 80px);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        position: relative; /* Necesario para la posición absoluta de las imágenes dentro */
+        position: relative;
       }
 
-      /* Posicionar la imagen esquina en la parte superior izquierda */
       .top-left-image {
-        position: absolute; /* Posicionamos la imagen de forma absoluta */
-        top: 0; /* Pegada a la parte superior */
-        left: 0; /* Pegada a la parte izquierda */
-        width: 100px; /* Ajusta el tamaño de la imagen si es necesario */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
       }
 
-      /* Posicionar la imagen esquina2 en la parte inferior derecha */
       .bottom-right-image {
-        position: absolute; /* Posicionamos la imagen de forma absoluta */
-        bottom: 0; /* Pegada a la parte inferior */
-        right: 0; /* Pegada a la parte derecha */
-        width: 100px; /* Ajusta el tamaño de la imagen si es necesario */
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100px;
       }
 
-      /* Posicionar la imagen seta en la parte superior derecha */
       .top-right-seta {
-        position: absolute; /* Posicionamos la imagen de forma absoluta */
-        top: 0; /* Pegada a la parte superior */
-        right: 0; /* Pegada a la parte derecha */
-        width: 80px; /* Ajustamos el tamaño de la imagen a 80px para hacerla más pequeña */
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80px;
       }
 
-      /* Estilo para el campo de entrada de correo */
       .email-input {
-        width: 100%; /* Campo de correo ocupa todo el ancho */
+        width: 100%;
         padding: 12px;
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra negra semi-opacada */
-        margin-bottom: 20px; /* Espacio debajo */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
         font-size: 16px;
         background-color: white;
         color: #333;
         box-sizing: border-box;
       }
 
-      /* Campo de texto extendido donde el usuario escribe */
       .input-field {
-        width: 100%; /* Hacemos que el campo de texto sea más ancho */
+        width: 100%;
         padding: 12px;
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra negra semi-opacada */
-        margin: 8px 0; /* Márgenes de 8px arriba y abajo */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        margin: 8px 0;
         font-size: 16px;
         resize: none;
         background-color: white;
         color: #333;
         box-sizing: border-box;
-        flex-grow: 1; /* Hace que el campo de texto ocupe el espacio restante */
+        flex-grow: 1;
       }
 
-      /* Estilo para el desplegable (select) */
       .select-dropdown {
-        width: 100%; /* El desplegable ocupa todo el ancho */
+        width: 100%;
         padding: 12px;
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra negra semi-opacada */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         font-size: 16px;
         background-color: white;
         color: #333;
         box-sizing: border-box;
-        margin-bottom: 20px; /* Espacio debajo */
+        margin-bottom: 20px;
         cursor: pointer;
         justify-items: center;
       }
 
-      /* Botones inferiores */
       .buttons-container {
         width: 100%;
         display: flex;
-        justify-content: center; /* Centramos el botón */
-        gap: 10px; /* Espacio entre los botones */
+        justify-content: center;
+        gap: 10px;
       }
 
       .left-btn {
@@ -123,18 +120,17 @@
         border-radius: 10px;
         font-size: 16px;
         cursor: pointer;
-        background-color: #EB585B; /* Fondo color EB585B */
-        color: white; /* Texto blanco */
-        width: 65%; /* Botón más grande */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+        background-color: #EB585B;
+        color: white;
+        width: 65%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: background-color 0.3s ease;
       }
 
       .left-btn:hover {
-        background-color: #D84E4E; /* Color más oscuro cuando se pasa el mouse */
+        background-color: #D84E4E;
       }
 
-      /* Media queries para hacer el diseño responsive */
       @media (max-width: 768px) {
         .container {
           padding: 20px;
@@ -148,29 +144,28 @@
         .input-field {
           font-size: 14px;
           padding: 15px;
-          height: 350px; /* Hacemos que el campo de texto sea más largo en pantallas pequeñas */
+          height: 350px;
         }
 
         .buttons-container {
-          flex-direction: column; /* Los botones se apilan verticalmente */
+          flex-direction: column;
           align-items: center;
         }
 
         .left-btn {
-          width: 80%; /* Hacer los botones más anchos en pantallas pequeñas */
+          width: 80%;
         }
       }
 
       @media (max-width: 480px) {
         h1 {
-          font-size: 20px; /* Hacer el título más pequeño en pantallas muy pequeñas */
+          font-size: 20px;
         }
       }
 
-      /* Para el iPhone 14 Pro Max y dispositivos similares */
       @media (min-width: 800px) and (max-width: 900px) {
         .container {
-          width: 70%; /* El cuadro ocupa un 70% del ancho */
+          width: 70%;
           padding: 40px;
         }
 
@@ -180,7 +175,7 @@
         }
 
         .input-field {
-          height: 350px; /* Mayor altura para el campo de texto */
+          height: 350px;
           font-size: 18px;
         }
 
@@ -191,26 +186,13 @@
     </style>
   </head>
   <body>
-    <!-- Contenedor del body -->
     <div class="body-container">
-      <!-- Contenedor principal -->
-      <div class="font-fuente container">
-        <!-- Imagen esquina en la parte superior izquierda del contenedor -->
+      <div class="container">
         <img src="Elementos_Qrio/esquina.png" alt="Imagen Esquina" class="top-left-image" />
-        
-        <!-- Imagen esquina2 en la parte inferior derecha del contenedor -->
         <img src="Elementos_Qrio/esquina2.png" alt="Imagen Esquina 2" class="bottom-right-image" />
-        
-        <!-- Imagen seta en la parte superior derecha del contenedor -->
         <img src="Elementos_Qrio/seta.png" alt="Imagen Seta" class="top-right-seta" />
-
-        <!-- Campo para ingresar el correo -->
         <input class="email-input" type="email" placeholder="Ingresa tu correo..." required />
-        
-        <!-- Campo de texto para que el usuario escriba -->
         <textarea class="input-field" placeholder="Escribe aquí..."></textarea>
-        
-        <!-- Desplegable en lugar de botón izquierdo -->
         <select class="select-dropdown">
           <option value="">Selecciona el tipo de Qrio</option>
           <option value="opcion1">Gastronomía</option>
@@ -223,28 +205,21 @@
           <option value="opcion4">Ed. Sexual</option>
           <option value="opcion4">Cine</option>
         </select>
-        
-        <!-- Contenedor de botones, ahora solo un botón -->
         <div class="buttons-container">
           <button class="left-btn" id="send_email">Enviar</button>
         </div>
       </div>
     </div>
-
-    <!-- Script de EmailJS -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
-      // Asegúrate de que el script de EmailJS se haya cargado correctamente
-      emailjs.init("pAOUPkYqSC18eV5T-"); // Inicia EmailJS con tu USER ID
+      emailjs.init("pAOUPkYqSC18eV5T-");
 
       document.getElementById("send_email").addEventListener("click", function(event) {
         event.preventDefault();
-
-        // Recoger los valores de los campos
         var userEmail = document.querySelector(".email-input").value;
         var message = document.querySelector(".input-field").value;
         var qrioType = document.querySelector(".select-dropdown").value;
 
-        // Verificar que los campos no estén vacíos
         if (!userEmail || !message || !qrioType) {
           alert("Por favor, completa todos los campos.");
           return;
@@ -252,18 +227,12 @@
 
         var formData = {
           from_name: userEmail,
-          to_name: "Nombre destinatario",  // Cambia esto según el destinatario real
+          to_name: "Nombre destinatario",
           email_id: userEmail,
           message: message,
           qrio_type: qrioType
         };
 
-        // Mostrar los valores de los campos para depuración
-        console.log("Correo:", userEmail);
-        console.log("Mensaje:", message);
-        console.log("Tipo de Qrio:", qrioType);
-
-        // Enviar correo con EmailJS
         emailjs.send("service_sg9yltp", "template_us27k9c", formData)
           .then((response) => {
             alert("Mensaje enviado con éxito");

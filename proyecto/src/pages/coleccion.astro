@@ -77,7 +77,7 @@ import Layout from "../layouts/Layout.astro";
                 </div>  
         </div>
 
-        <!-- Imagen inferior -->
+    
         <img src="./media/seta.png" alt="Figura de seta" class="right-4 bottom-12 absolute w-10 sm:w-14 md:w-24 h-auto">
     </section>
 
@@ -282,11 +282,9 @@ import Layout from "../layouts/Layout.astro";
         buttons.forEach((button) => {
             button.addEventListener("click", () => {
                 const category = button.getAttribute("data-category");
-                //Obtiene los elementos (items) de la categoría seleccionada
+                
                 const items = categories[category];
-                //color correspondiente a la categoria
                 const color = categoryColors[category];
-                // Actualiza la cuadrícula
                 grid.innerHTML = items
                     .map((item, index) =>
                         index === 0
@@ -302,7 +300,6 @@ import Layout from "../layouts/Layout.astro";
                     .join("");
 
             
-            // Establecer margen dinámico según el tamaño de la pantalla
             if (window.innerWidth >= 640) {
                 grid.style.marginTop = "-18px";
             } else {
@@ -313,19 +310,19 @@ import Layout from "../layouts/Layout.astro";
             grid.style.backgroundColor = categoryColors[category];
             // Estilo original para todos los botones
             buttons.forEach((btn) => {
-                btn.style.backgroundColor = ""; // Fondo original
-                btn.style.color = "#4e342e"; // Color original del texto
-                btn.style.borderRadius = "0"; // Sin bordes redondeados
-                btn.style.padding = "0";// Restablecer espacio
-                btn.classList.remove("active"); //Eliminación clase activa
+                btn.style.backgroundColor = ""; 
+                btn.style.color = "#4e342e"; 
+                btn.style.borderRadius = "0"; 
+                btn.style.padding = "0";
+                btn.classList.remove("active"); 
             });
 
             // Estilo para el botón seleccionado
-            button.style.backgroundColor = color; // Color suave
-            button.style.color = "#4e342e"; // Color del texto
-            button.style.borderRadius = "12px"; // Bordes redondeados
-            button.style.padding = "6px 8px"; // Espaciado interno
-            //boton marcado como activo, le añadimos una serie
+            button.style.backgroundColor = color; 
+            button.style.color = "#4e342e";
+            button.style.borderRadius = "12px";
+            button.style.padding = "6px 8px";
+
             button.classList.add("active");
             });
         });
@@ -334,7 +331,7 @@ import Layout from "../layouts/Layout.astro";
     document.addEventListener("DOMContentLoaded", () => {
         const defaultCategoryButton = document.querySelector("[data-category='gastronomia']");
         if (defaultCategoryButton) {
-            defaultCategoryButton.click(); // Simula el clic
+            defaultCategoryButton.click(); 
         }
     });
 
